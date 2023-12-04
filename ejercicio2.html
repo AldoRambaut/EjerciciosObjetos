@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Ejercicio 2</title>
+    <script>
+        class Contador {
+            #conteo;
+            constructor(){
+                this.#conteo = 0;
+            }
+            incrementar(){
+                this.#conteo++;
+            }
+            decrementar(){
+                this.#conteo--;
+            }
+            set setConteo(numero){
+                this.#conteo = numero;
+            }
+            get getConteo(){
+                return this.#conteo;
+            }
+        }
+        const conteo = new Contador();
+        alert(`Variable conteo inicial: ${conteo.getConteo}`);
+        conteo.incrementar();
+        alert(`Variable despues de incrementar: ${conteo.getConteo}`);
+        conteo.incrementar();
+        alert(`Variable despues de incrementar por segunda vez: ${conteo.getConteo}`);
+        conteo.decrementar();
+        alert(`Variable despues de decrementar: ${conteo.getConteo}`);
+        conteo.decrementar();
+        alert(`Variable despues de decrementar por segunda vez: ${conteo.getConteo}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

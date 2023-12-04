@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Ejercicio 4</title>
+    <script>
+        class Alumno{
+            #nombre;
+            #notaDelAlumno;
+            constructor(nombre, nota){
+                this.#nombre = nombre;
+                this.#notaDelAlumno = nota;
+            }
+            toString(){
+                return `El estudiante ${this.#nombre} saco ${this.#notaDelAlumno}, el alumno ${(this.#notaDelAlumno >= 3)? 'Aprobo' : 'No aprobo'}`;
+            }
+
+        }
+        const alumno1 = new Alumno('Ronaldo', 3.5);
+        alert(alumno1.toString());
+        const alumno2 = new Alumno('Aldo', 2.9);
+        alert(alumno2.toString());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

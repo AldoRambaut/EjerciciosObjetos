@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Ejercicio 6</title>
+    <script>
+        class Triangulo{
+            #lado1;
+            #lado2;
+            #lado3;
+            constructor(lado1, lado2, lado3){
+                this.#lado1 = lado1;
+                this.#lado2 = lado2;
+                this.#lado3 = lado3;
+            }
+            toString(){
+                return `En este triangulo el lado con mayor tamaño es: ${(Math.max(this.#lado1, this.#lado2, this.#lado3))} y es un triangulo ${(this.#lado1 == this.#lado2 && this.#lado2 == this.#lado3)? 
+                'equilatero' : (this.#lado1 == this.#lado2 || this.#lado2 == this.#lado3 || this.#lado3 == this.#lado1)? 'isoceles' : 'escaleno'}`;
+            }
+        }
+        const triangulo1 = new Triangulo(3,3,3);
+        alert(triangulo1.toString());
+        const triangulo2 = new Triangulo(1,2,3);
+        alert(triangulo2.toString());
+        const triangulo3 = new Triangulo(1,3,3);
+        alert(triangulo3.toString());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

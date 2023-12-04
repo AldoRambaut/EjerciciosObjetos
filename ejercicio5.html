@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Ejercicio 5</title>
+    <script>
+        class Persona{
+            #nombre;
+            #edad;
+            constructor(nombre, edad){
+                this.#nombre = nombre;
+                this.#edad = edad;
+            }
+            toString(){
+                return `${this.#nombre} tiene ${this.#edad}, por lo tanto ${(this.#edad >= 18)? 'es mayor de edad' : 'es menor de edad'}`;
+            }
+        }
+        const persona1 = new Persona('Ronaldo', 5);
+        alert(persona1.toString());
+        const persona2 = new Persona('Aldo', 34);
+        alert(persona2.toString());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

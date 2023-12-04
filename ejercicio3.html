@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Ejercicio 3</title>
+    <script>
+        class Cuenta{
+            #titular;
+            #cantidad;
+            constructor(titular, cantidad = 0){
+                this.#titular = titular;
+                this.#cantidad = cantidad;
+            }
+            set setCantidad(cantidad){
+                this.#cantidad = cantidad;
+            }
+            get getCantidad(){
+                return this.#cantidad;
+            }
+            set setTitular(titular){
+                this.#titular = titular;
+            }
+            get getTitular(){
+                return this.#titular;
+            }
+            toString(){
+                return `Usiario: ${this.#titular}\nCantidad: ${this.#cantidad}`;
+            }
+            ingresar(cantidad){
+                if (cantidad > 0) {
+                    this.#cantidad += cantidad;
+                } else {
+                    alert(`No se pueden ingresar numeros negativos`);
+                }
+            }
+            retirar(cantidad){
+                if (cantidad <= this.#cantidad) {
+                    this.#cantidad -= cantidad;
+                } else{
+                    alert(`Fondos insuficientes`);
+                }
+            }
+        }
+        const cuenta1 = new Cuenta('Aldo');
+        alert(`Cuenta creada por defecto:\n${cuenta1.toString()}`);
+        cuenta1.ingresar(50000);
+        alert(`Cuenta 1 despues de ingresar dinero:\n${cuenta1.toString()}`);
+        cuenta1.retirar(100000);
+        const cuenta2 = new Cuenta('Ronaldo', 20000);
+        alert(`Cuenta creada definiendo la cantidad en el constructor:\n${cuenta2.toString()}`)
+        cuenta2.ingresar(-5000);
+        cuenta2.retirar(5000);
+        alert(`Cuenta 2 despues de retirar 5000:\n${cuenta2.toString()}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

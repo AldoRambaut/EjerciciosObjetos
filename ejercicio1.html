@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Ejercicio 1</title>
+    <script>
+        class Cuenta{
+            saldo;
+            constructor(saldo){
+                this.saldo = saldo;
+            }
+            ingreso(cantidad) {
+                this.saldo += cantidad;
+            }
+            reintegro(cantidad){
+                this.saldo += cantidad;
+            }
+            transferencia(cantidad){
+                if (cantidad <= this.saldo) {
+                    this.saldo -= cantidad;
+                } else {
+                    alert(`saldo insuficiente`);
+                }
+            }
+            get getSaldo(){
+                return this.saldo;
+            }
+            set setSaldo(saldo){
+                this.saldo = saldo;
+            }
+        }
+        var cuenta1 = new Cuenta();
+        cuenta1.setSaldo = 10000;
+        alert(cuenta1.getSaldo);
+        var cuenta2 = new Cuenta(20000);
+        alert(cuenta2.getSaldo);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

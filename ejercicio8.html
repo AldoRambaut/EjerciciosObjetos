@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Calculadora{
+            #numero1;
+            #numero2;
+            constructor(numero1, numero2){
+                this.#numero1 = numero1;
+                this.#numero2 = numero2;
+            }
+            suma(){
+                return this.#numero1 + this.#numero2;
+            }
+            resta(){
+                return this.#numero1 - this.#numero2;
+            }
+            multiplicacion(){
+                return this.#numero1 * this.#numero2;
+            }
+            division(){
+                return this.#numero1 / this.#numero2;
+            }
+            set setNumero1(numero){
+                this.#numero1 = numero;
+            }
+            set setNumero2(numero){
+                this.#numero2 = numero;
+            }
+            get getNumero1(){
+                return this.#numero1;
+            }
+            get getNumero2(){
+                return this.#numero2;
+            }
+        }
+        const numeros = new Calculadora(7, 5);
+        alert(`la suma es ${numeros.suma()}`);
+        alert(`la resta es ${numeros.resta()}`);
+        alert(`la multiplicacion es ${numeros.multiplicacion()}`);
+        alert(`la division es ${numeros.division()}`);
+        numeros.setNumero1 = 5;
+        numeros.setNumero2 = 4;
+        alert(`el numero uno modificado es ${numeros.getNumero1}`);
+        alert(`el numero dos modificado es ${numeros.getNumero2}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

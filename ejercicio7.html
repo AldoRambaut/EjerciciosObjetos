@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Ejercicio 7</title>
+    <script>
+        class Agenda{
+            static contactos = [];
+            static agendaActiva = true;
+            static menu(){
+                
+                var opcion = +prompt(`
+                Menu:
+                1. Añadir contacto
+                2. Lista de contactos
+                3. Buscar contacto
+                4. Editar contacto
+                5. Cerrar agenda
+                
+                Ingrese el numero de la accion que desee realizar`);
+                return opcion;
+            }
+            static addContacto(){
+                let nombre = prompt(`Ingrese el nombre del contacto a agregar`);
+                let telefono = prompt(`Ingrese el telefono del contacto a agregar`);
+                while(isNaN(telefono) || telefono.length != 10){
+                    telefono = prompt(`Telefono invalido, ingrese el telefono del contacto a agregar`);
+                }
+                let correo = prompt(`Ingrese el correo del contacto a agregar`);
+                while(!(correo.includes('@') && correo.includes('.'))){
+                    correo = prompt(`Correo invalido, ingrese el correo del contacto a agregar`);
+                }
+                Agenda.contactos.push(new Contactos(nombre, telefono, correo));
+            }
+            static listaDeContactos(){
+                let lista = '';
+                for (const iterator of Agenda.contactos) {
+                    lista += iterator + '\n';
+                }
+                alert(lista);
+            }
+            static buscarContacto(){
+                let nombre = prompt('escriba el nombre que desea buscar');
+                let busqueda = Agenda.contactos.find((contacto) => contacto.getNombre == nombre);
+                if (busqueda != undefined) {
+                    alert(busqueda);    
+                } else {
+                    alert('Nombre no encontrado');
+                }
+            }
+            static editarContacto(){
+                let indice = +prompt('Ingrese el ID de el contacto que desea modificar');
+                let opcion = +prompt(`Que desea modificar?\n1. Nombre\n2. Telefono\n3. Correo`);
+                switch (opcion) {
+                    case 1:
+                        Agenda.contactos[indice].setNombre = prompt('Ingrese el nuevo nombre');
+                        break;
+                    case 2:
+                        Agenda.contactos[indice].setTelefono = prompt('Ingrese el nuevo telefono');
+                        break;
+                    case 3:
+                        Agenda.contactos[indice].setCorreo = prompt('Ingrese el nuevo correo');
+                        break;
+                    default:
+                        alert('Valor invalido');
+                        break;
+                }
+                 
+            }
+            static cerrarAgenda(){
+                Agenda.agendaActiva = false;
+            }
+        }
+        class Contactos{
+            static consecutivo = 0;
+            #id;
+            #nombre;
+            #telefono;
+            #correo;
+            constructor(nombre, telefono, correo){
+                this.#id = Contactos.consecutivo++;
+                this.#nombre = nombre;
+                this.#telefono = telefono;
+                this.#correo = correo;
+            }
+            toString(){
+                return `ID: ${this.#id}\nNombre: ${this.#nombre}\nTelefono: ${this.#telefono}\nCorreo: ${this.#correo}\n`;
+            }
+            set setNombre(nombre){
+                this.#nombre = nombre;
+            }
+            get getNombre(){
+                return this.#nombre;
+            }
+            set setTelefono(telefono){
+                this.#telefono = telefono;
+            }
+            get getTelefono(){
+                return this.#telefono;
+            }
+            set setCorreo(correo){
+                this.#correo = correo;
+            }
+            get getCorreo(){
+                return this.#correo;
+            }
+        }
+        do {
+            let opcion = Agenda.menu();
+            switch (opcion) {
+                case 1:
+                    Agenda.addContacto();
+                    break;
+                case 2:
+                    Agenda.listaDeContactos();
+                    break;
+                case 3:
+                    Agenda.buscarContacto();
+                    break;
+                case 4:
+                    Agenda.editarContacto();
+                    break;
+                    case 5:
+                    Agenda.cerrarAgenda();
+                    break;
+                default:
+                    alert('Opcion invalida');
+                    break;
+            }
+        }while (Agenda.agendaActiva);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
